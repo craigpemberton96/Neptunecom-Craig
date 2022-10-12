@@ -18,9 +18,16 @@
         {% for item in cart.items %}
           <div class="cart-template__item">
 
+            {% assign lineOptions = "" %}
+            {% for property in item.properties %}
+              {% assign lineOptions = "&" %}
+              {% assign lineOptions = lineOptions | append: property.first | append: "=" %}
+              {% assign lineOptions = lineOptions | append: property.last %}
+            {% endfor %}
+
             <div class="cart-template__image">
               {% if item.image != blank %}
-                <a href="{{ item.url | within: collections.all }}">
+                <a href="{{ item.url | append: lineOptions }}">
                   {{ item | img_url: '760x' | scale: 2 | img_tag: item.title }}
                 </a>
               {% endif %}

@@ -111,7 +111,7 @@ variant_popup_page.content != blank %}
 {%- assign option_name = option.name | downcase -%}
 
 {% unless swatch_options contains option_name or chip_options contains option_name %}
-{% if option.name == "Paint Service" %}
+{% if option.name == "Paint Service" or option.name == "Fabric Price Band" %}
 <button type="button" class="config-toggle bttn" id="configurable-product-button">Configure</button>
 {% for finish in configurableFinish %}
 <p class="line-item-property__field hide">
@@ -121,7 +121,7 @@ variant_popup_page.content != blank %}
 {% endfor %}
 {% endif %}
 
-{% if option.name == "Paint Service" %}
+{% if option.name == "Paint Service" or option.name == "Fabric Price Band" %}
   {% assign hide = "hide" %}
 {% endif %}
 
@@ -152,7 +152,6 @@ variant_popup_page.content != blank %}
     document.getElementsByClassName("configurable-product-overlay")[0].classList.toggle("is-active");
     document.getElementsByClassName("configurable-product-overlay__inner")[0].classList.toggle("is-visible");
     element.classList.toggle("is-visible");
-    //  return false;
   }
 
   document.addEventListener("DOMContentLoaded", function () {

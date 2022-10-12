@@ -16648,12 +16648,53 @@ content: "";
     padding: 0;
   }
 }
+.tabs-only {
+  display: flex;
+}
+.tabs-only .accordion-tab {
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: solid 2px transparent;
+  cursor: pointer;
+  background:none;
+}
+.tabs-only .accordion-tab:last-child {
+  border-right: 0;
+}
+.tabs-only .accordion-item {
+  display: none;
+  min-height: 260px;
+  padding: 30px;
+  border: none;
+  width: 100%;
+  margin-bottom:89px;
+}
+.tabs-only .accordion-item__label, .accordion-item__container {
+  padding: 0;
+  transition: inherit;
+}
+.tabs-only .accordion-item__label {
+  margin-bottom: 0px;
+  display:none;
+}
+.tabs-only .accordion-item {
+  display: none;
+}
+.tabs-only .accordion-item.accordion-active {
+  display: block;
+}
+.tabs-only .accordion-item.accordion-active .accordion-item__container {
+  padding: 0;
+}
 
 .cylindo-tooltip.cylindo-no-feature {
   display: none!important;
 }
+.config-drawer__footer {
+  border-top: 1px solid var(--color-drawer-border);
+  padding: var(--spacing-medium);
+}
 .product-config-template {
-  height: 100%;
+  height: calc(100% - 89px);
 }
 #configurable-product {
   display:flex;
@@ -16669,18 +16710,20 @@ content: "";
   overflow-y: scroll;
 }
 #cylindo-viewer {
-  height:35%;
+  height:40%;
   background: white;
 }
 .finish-items__wrapper {
   display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .finish-item {
   width:25%;
   padding:15px;
 }
-.finish-item:hover {
-  background-color:var(--color-background-meta);
+.finish-item:hover .finish-item-name {
+  text-decoration: underline;
 }
 .finish-item-thumb {
   /* flex settings can be basically anything */
